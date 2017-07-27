@@ -67,12 +67,14 @@ uint32_t GetNextWorkRequired(const CBlockIndex *pindexPrev,
     assert(pindex6);
     int64_t mtp6blocks =
         pindexPrev->GetMedianTimePast() - pindex6->GetMedianTimePast();
+    LogPrintf("***************************************************");
     LogPrintf("GetNextWorkRequired: nHeight = %d\n", nHeight);
     LogPrintf("GetNextWorkRequired: pindexPrev.height = %d\n", pindexPrev->nHeight);
     LogPrintf("GetNextWorkRequired: pindexPrev.mtp = %ld\n", pindexPrev->GetMedianTimePast());
     LogPrintf("GetNextWorkRequired: pindex6.height = %d\n", pindex6->nHeight);
     LogPrintf("GetNextWorkRequired: pindex6.mtp = %ld\n", pindex6->GetMedianTimePast());
     LogPrintf("GetNextWorkRequired: mtp6blocks = %ld\n", mtp6blocks);
+    LogPrintf("***************************************************");
     if (mtp6blocks < 12 * 3600) {
         return nBits;
     }
